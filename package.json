@@ -7,7 +7,10 @@
         "build": "now-sdk build",
         "deploy": "now-sdk install",
         "transform": "now-sdk transform",
-        "types": "now-sdk dependencies"
+        "types": "now-sdk dependencies",
+        "docker:build": "docker build -t now-sdk-image:latest .",
+        "docker:run": "docker run --rm --env-file .env now-sdk-image:latest",
+        "docker:run:inline": "docker run --rm --env-file .env -e GIT_URL=https://github.com/sandeepkumaar/fluent-docker -e SN_SDK_INSTANCE_URL=https://dev12345.service-now.com now-sdk-image:latest"
     },
     "devDependencies": {
         "@servicenow/sdk": "3.0.2",
